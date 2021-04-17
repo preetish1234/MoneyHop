@@ -26,7 +26,7 @@ public class DeatilsForm extends BaseTestWeb {
 
 		if (UtilitiesWeb.waitUntilElementIsVisible(details.name, 30)) {
 
-			ActionClass.clickSendkeyFuction(driver, details.name, "Preetish Kumar Mahato");
+			ActionClass.clickSendkeyFuction(driver, details.name, "Test engineer assignment");
 			test.log(Status.INFO, "Click on Name user can type the name");
 		} else {
 			test.log(Status.DEBUG, "Not able to click & type on Name Field" + "<br/>", MediaEntityBuilder
@@ -35,7 +35,7 @@ public class DeatilsForm extends BaseTestWeb {
 
 		if (UtilitiesWeb.waitUntilElementIsVisible(details.email, 20)) {
 
-			ActionClass.clickSendkeyFuction(driver, details.email, "preetish.m004@gmail.com");
+			ActionClass.clickSendkeyFuction(driver, details.email, "test@test.com");
 			test.log(Status.INFO, "Click on Email & type the email id");
 		} else {
 			test.log(Status.DEBUG, "Not able to Click & type on Email field" + "<br/>", MediaEntityBuilder
@@ -110,6 +110,8 @@ public class DeatilsForm extends BaseTestWeb {
 			
 			UtilitiesWeb.waitUntilPageLoaded();
 			if(UtilitiesWeb.waitUntilElementIsVisible(details.successMsg, 30)) {
+				String val  = details.successMsg.getText();
+				System.out.println("Success Msg - "+val);
 				JavaScriptExecutor.highlightElementAndDisbleTheElement(driver, details.successMsg);
 			}else {
 				test.log(Status.DEBUG, "Success msg has not Populated" + "<br/>", MediaEntityBuilder
